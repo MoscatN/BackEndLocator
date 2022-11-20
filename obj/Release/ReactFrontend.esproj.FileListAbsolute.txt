@@ -1,0 +1,2 @@
+C:\Users\Moscat\source\repos\ReactFrontEnd\ReactFrontEnd\obj\Release\ReactFrontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\Moscat\source\repos\ReactFrontEnd\ReactFrontEnd\obj\Release\ReactFrontend.esproj.CoreCompileInputs.cache

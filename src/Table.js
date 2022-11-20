@@ -1,26 +1,70 @@
-import React from 'react'
-import MaterialTable from 'material-table'
+//import React, { Component } from 'react';
+//import MaterialTable from 'material-table'
 
-export const Table = () => {
+//const columns = [
+//    {
+//        title: 'Longitude', field: 'long'
+//    },
+//    {
+//        title: 'Latitude', field: 'lat'
+//    },
+//    {
+//        title: 'Motel', field: 'motel'
+//    },
+//    {
+//        title: 'Address', field: 'address'
+//    },
+//    {
+//        title: 'Locality', field: 'locality'
+//    },
+//    {
+//        title: 'Region', field: 'region'
+//    },
+//]
 
-    const data = [
-        { name: 'Nestor', age:20 },
-        { name: 'Julio', age:30 },
-        { name: 'Martin', age:23 },
-        { name: 'Lionel', age:28 }
-    ]
-    const columns = [
-        {
-            title:'Name',field:'name'
-        },
-        {
-            title:'Age', field:'age'
-        }
-    ]
-    return (<div>
-        <MaterialTable
-            data={data}
-            columns={columns}
-        />
-    </div>)
-}
+// //        {locations.map(location =>
+//        //        <tr>
+//        //        <td scope='row'>{location.locationId}</td>
+//        //        <td>{location.longitude}</td>
+//        //        <td>{location.latitude}</td>
+//        //        <td>{location.name}</td>
+//        //        <td>{location.address}</td>
+//        //        <td>{location.locality}</td>
+//        //        <td>{location.region}</td>
+
+//export default class Table extends Component {
+
+//    constructor(props)
+//    {
+//        super(props);
+//        this.state = { locations: [], loading: true };
+//    }
+
+//    componentDidMount() {
+//        this.populateLocData();
+//    }
+
+//    //render() {
+//    //    return (<div>
+//    //        <MaterialTable
+//    //            data={locations.map(location =>
+//    //            { location.locationId },
+//    //            { location.longitude },
+//    //            { location.latitude },
+//    //            { location.name },
+//    //            { location.address },
+//    //            { location.locality },
+//    //            { location.region }
+//    //            )}
+//    //            columns={columns}
+//    //        />
+//    //    </div>)
+//    //}
+
+//    async populateLocData() {
+//        const response = await fetch('https://localhost:7227/api/locations');
+//        const data = await response.json();
+//        this.setstate({ locations: data, loading: false });
+//    }
+
+//}

@@ -69,8 +69,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-
 ### Leer el JSON 
 Instalar WebApi.Client para el ReadAsASync. 
 SI el WebApi no se instala, limpiar el cache. 
+
+### Implementar el mapa de Leaflet 
+Procurar tener el css de leaflet: 
+import 'leaflet/dist/leaflet.css';
