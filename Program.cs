@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using LocatorBackEnd.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<LocatorBackEndContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("LocatorBackEndContext") ?? throw new InvalidOperationException("Connection string 'LocatorBackEndContext' not found.")));
@@ -13,14 +14,17 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy(name: MyAllowSpecificOrigins,
-//                      policy =>
-//                      {
-//                          policy.WithOrigins("http")
-//                      }
-//});
+
+builder.Services.AddCors(options =>
+{
+    //Se crea una lambda expression para establecer una nueva politica
+    options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
+    {
+        //Dos maneras de establecer donde se permitira el CORS, si no funciona una probar con la otra.
+        policy.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
+        //builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost").AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -34,6 +38,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 

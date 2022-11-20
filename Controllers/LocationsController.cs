@@ -92,36 +92,21 @@ namespace LocatorBackEnd.Controllers
 
             return CreatedAtAction("GetLocation", new { id = location.LocationId }, location);
         }
-
+        //GET: api/Locations/findmotels
+        //Returns a JSON with all the motels in Santo Domingo
         [HttpGet("findmotels")]
         public async Task<String> FindMotel()
         {
-            WebRequest request = WebRequest.Create("https://api.foursquare.com/v3/places/search?ll=18.483402%2c-69.929611&categories=19017&limit=10");
+            WebRequest request = WebRequest.Create("https://api.foursquare.com/v3/places/search?ll=18.483402%2c-69.929611&categories=19017&limit=50");
             request.Headers.Add("Authorization", "fsq3DcI3urC/S90Oltu1fqRt+dZM+psEYVDSFgxqk276XNQ=");
             WebResponse response = request.GetResponse();
             StreamReader read = new StreamReader(response.GetResponseStream());
             string result = await read.ReadToEndAsync();
             dynamic jsonDe = JsonConvert.DeserializeObject(result);
 
-            string latitude = jsonDe.latitude;
-            string longitude = jsonDe.longitude;
-            string address = jsonDe.address;
-            string locality = jsonDe.locality;
-            string region = jsonDe.region;
-            return address; 
-            //return response;
+            return result; 
         }
-        //[HttpGet("FindCabana")]
-        //public async Task<string> GetMotel()
-        //{
-
-        //    WebRequest orequest = WebRequest.Create("https://api.foursquare.com/v3/places/search?query=Motel&ll=18.4861%2C-69.9312&radius=5000");
-
-        //    orequest.Headers.Add("Authorization", "fsq3DcI3urC/S90Oltu1fqRt+dZM+psEYVDSFgxqk276XNQ=");
-        //    WebResponse orespose = orequest.GetResponse();
-        //    StreamReader sr = new StreamReader(orespose.GetResponseStream());
-        //    return await sr.ReadToEndAsync();
-        //}
+        
 
         // DELETE: api/Locations/5
         [HttpDelete("{id}")]

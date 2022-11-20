@@ -12,7 +12,6 @@ namespace LocatorBackEnd
         public string Name { get; set; }
         [Required]
         public string Address { get; set; }
-        [Required]
         public string Locality { get; set; }
         public string Region { get; set; }
 
